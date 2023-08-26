@@ -10,30 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int main ( void ) {
 
     try
     {
+        Bureaucrat hamdi("Bureaucrat Hamdi", 150);
+        std::cout << hamdi << std::endl;
 
-        Bureaucrat hamdi("Bureaucrat Hamdi", 140);
-        Bureaucrat sabri("Bureaucrat Sabri", 150);
-        Bureaucrat huseyin("Bureaucrat Huseyin", 149);
+        Form Form1("Form 1", 100, 75);
+        std::cout << Form1 << std::endl;
 
-        std::cout << huseyin << std::endl;
-        huseyin.downGrade();
-        std::cout << huseyin << std::endl;
-        huseyin.upGrade();
-        huseyin.upGrade();
-        std::cout << huseyin << std::endl;
-        huseyin.downGrade();
-        huseyin.downGrade();
-        huseyin.downGrade();
-        std::cout << huseyin << std::endl;
-
-        
+        hamdi.signForm(Form1);
+        std::cout << Form1 << std::endl;
     }
     catch(const std::exception &e)
     {

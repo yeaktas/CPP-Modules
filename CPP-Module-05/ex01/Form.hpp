@@ -16,6 +16,8 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
+class Bureaucrat;
+
 class Form {
 
     private:
@@ -27,7 +29,7 @@ class Form {
     public:
         //Constructors & Destructors
         Form();
-        Form(std:string name, int signGrade, int executeGrade);
+        Form(std::string name, int signGrade, int executeGrade);
         Form(const Form &copy);
         Form &operator=(const Form &copy);
         ~Form();
