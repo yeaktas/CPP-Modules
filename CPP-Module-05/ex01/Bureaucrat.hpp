@@ -13,8 +13,10 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_CPP
 
-
+#include "Form.hpp"
 #include <iostream>
+
+class	Form;
 
 class Bureaucrat {
     private:
@@ -22,17 +24,21 @@ class Bureaucrat {
         int _grade;
 
     public:
+        //Constructors & Destructors
         Bureaucrat();
         Bureaucrat(std::string name, int grade);
         Bureaucrat(const Bureaucrat& copy);
         Bureaucrat &operator=(const Bureaucrat &copy);
         ~Bureaucrat();
 
+        //Getters
         std::string getName(void) const; //Bir veri değiştirmediği için const kullandık.
         int getGrade(void) const;
 
+        //Member Functions
         void upGrade(void);
         void downGrade(void);
+        void signForm(Form &form);
 
         //Exceptions
         class GradeTooHighException : public std::exception{

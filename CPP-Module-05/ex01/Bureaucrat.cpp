@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(): _name("Default"), _grade(150){
 
-    std::cout << "Default constucter called" << std::endl;
+    std::cout << "Bureaucrat default constucter called." << std::endl;
 
 }
-
 
 /* Bu kurucu(constructor) fonksiyon, Bureaucrat sınıfının oluşturulması 
 sırasında başlangıç değerlerinin atanmasını ve aynı zamanda geçerli 
@@ -36,7 +35,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name){
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copy){
 
-    std::cout << "Copy constructer called" << std::endl;
+    std::cout << "Bureaucrat copy constructer called." << std::endl;
     *this = copy;
 }
 
@@ -46,14 +45,14 @@ kopyalanır ve atama işlemi gerçekleştirilir. _name const tanımladığı iç
 burada _name eşitlenemez.*/
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy) {
 
-    std::cout << "Copy assigment operator called" << std::endl;
+    std::cout << "Bureaucrat copy assigment operator called." << std::endl;
     this->_grade = copy._grade;
     return (*this);
 }
 
 Bureaucrat::~Bureaucrat( void ) {
 
-    std::cout << "Destructor called." << std::endl;
+    std::cout << "Bureaucrat destructor called." << std::endl;
 }
 
 //getName & getGrade
@@ -66,7 +65,7 @@ int Bureaucrat::getGrade ( void ) const {
     return (this->_grade);
 }
 
-//increment & decrement
+//Member Functions
 void Bureaucrat::upGrade( void ) {
 
     if(this->_grade - 1 < 1)
@@ -79,6 +78,19 @@ void Bureaucrat::downGrade( void ) {
         throw(Bureaucrat::GradeTooLowException());
     this->_grade++;
 }
+void Bureaucrat::signForm(Form &form) {
+
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
 
 //Exceptions
 const char *Bureaucrat::GradeTooHighException::what( void ) const throw() {
@@ -93,6 +105,6 @@ const char *Bureaucrat::GradeTooLowException::what( void ) const throw() {
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &b) {
 
-    os << b.getName() << ",  bureaucrat grade " << b.getGrade() << ".";
+    os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
     return (os);
 }
