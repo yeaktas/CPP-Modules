@@ -21,19 +21,19 @@
     • A constant name.
         const name oluşturun. 
     • And a grade that ranges from 1 (highest possible grade) to 150 (lowest possible grade).
-        Not, 1 ile 150 arasında olmalıdır ve geçersiz bir not kullanılmaya çalışıldığında istisna fırlatılmalıdır. 
+        Derece, 1 ile 150 arasında olmalıdır ve geçersiz bir derece kullanılmaya çalışıldığında istisna fırlatılmalıdır. 
         (Bureaucrat::GradeTooHighException veya Bureaucrat::GradeTooLowException).
 
     getName() ve getGrade() adlı iki özellik için get işlevleri sağlamalısınız. 
-    getName(), Bürokrat'ın ismini döndüren bir işlev olmalıdır ve getGrade(), Bürokrat'ın notunu döndüren bir işlev olmalıdır.
+    getName(), Bürokrat'ın ismini döndüren bir işlev olmalıdır ve getGrade(), Bürokrat'ın derecesini döndüren bir işlev olmalıdır.
 
-    Ayrıca, Bürokrat'ın notunu artırabileceğiniz incrementGrade() ve azaltabileceğiniz decrementGrade() adlı iki üye işlevi 
-    uygulamanız gerekmektedir. Ancak bu işlevler notun belirli sınırlar içinde olup olmadığını kontrol etmelidir. 
-    Notun geçerli aralıkta olmadığı durumda, bu işlevler aynı istisnaları fırlatmalıdır ki bu da 
+    Ayrıca, Bürokrat'ın derecesini artırabileceğiniz incrementGrade() ve azaltabileceğiniz decrementGrade() adlı iki üye işlevi 
+    uygulamanız gerekmektedir. Ancak bu işlevler derecenin belirli sınırlar içinde olup olmadığını kontrol etmelidir. 
+    Derecenin geçerli aralıkta olmadığı durumda, bu işlevler aynı istisnaları fırlatmalıdır ki bu da 
     Bureaucrat::GradeTooHighException veya Bureaucrat::GradeTooLowException istisnasıdır.
 
-    Örnek olarak, bir Bürokrat'ın notu "3" ise, not artırma işlemi sonucunda notu "2" olmalıdır. 
-    Bu nedenle, not artırma işlevi Bürokrat'ın notunu bir azaltma işlemi olarak düşünülmelidir.
+    Örnek olarak, bir Bürokrat'ın derecesi "3" ise, not artırma işlemi sonucunda derecesi "2" olmalıdır. 
+    Bu nedenle, not artırma işlevi Bürokrat'ın derecesini bir azaltma işlemi olarak düşünülmelidir.
 
     Atılan istisnaların try ve catch blokları kullanılarak yakalanabilir olması gerekir:
 
@@ -107,6 +107,7 @@ int main ( void ) {
 		catch(const std::exception &e) // sadece std istisnalarını yakalar
 		{
 			std::cerr << e.what() << std::endl;
+
         }
 	}
 
