@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_CPP
+#define BUREAUCRAT_HPP
 
 #include "Form.hpp"
 #include <iostream>
