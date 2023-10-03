@@ -12,6 +12,7 @@
 
 
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 /* 
 	Subject açıklama:
@@ -47,5 +48,6 @@
 
 int main(){
 
+	 Yusuf("Yusuf", 50);
 
 }

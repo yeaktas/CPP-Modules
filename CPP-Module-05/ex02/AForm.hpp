@@ -20,7 +20,7 @@ class Bureaucrat;
 
 class AForm {
 
-    private:
+    protected:
         const std::string _name;
         bool _signed;
         const int _signGrade;
@@ -28,10 +28,10 @@ class AForm {
 
     public:
         //Constructors & Destructors
-        AForm();
-        AForm(std::string name, int signGrade, int executeGrade);
-        AForm(const AForm &copy);
-        AForm &operator=(const AForm &copy);
+        AForm(); //default constuctor
+        AForm(std::string name, int signGrade, int executeGrade); //constructor
+        AForm(const AForm &copy); //copy constructor
+        AForm &operator=(const AForm &copy); 
         ~AForm();
 
         //Getters
@@ -52,6 +52,14 @@ class AForm {
         class GradeTooLowException : public std::exception{
 		    public:
 			    virtual const char *what(void) const throw();
+        };
+        class AFormAlreadySigned : public std::exception{
+            public:
+                virtual const char *what(void) const throw();
+        };
+        class AFormNotSigned : public std::exception{
+            public:
+                virtual const char *what(void) const throw();
         };
 };
 
