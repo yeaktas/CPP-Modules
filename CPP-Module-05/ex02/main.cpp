@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 00:41:27 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/03 00:42:11 by yaktas           ###   ########.fr       */
+/*   Updated: 2023/10/05 07:11:44 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "AForm.hpp"
+#include <iostream>
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /* 
 	Subject açıklama:
@@ -46,8 +47,25 @@
 
 */
 
-int main(){
+int main() {
 
-	 Yusuf("Yusuf", 50);
+	try
+	{
 
+	Bureaucrat emre("Emre", 4);
+	std::cout << emre << std::endl;
+
+	ShrubberyCreationForm FormS("shrubberyyyyyyyyy");
+	std::cout << FormS << std::endl;
+
+	emre.signForm(FormS);
+
+	std::cout << FormS << std::endl;
+
+	emre.executeForm(FormS);
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }

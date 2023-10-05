@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:09:49 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/03 16:29:29 by yaktas           ###   ########.fr       */
+/*   Updated: 2023/10/05 07:12:58 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,18 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 
 	std::ofstream file(fileName);
 
-	file << "TESTTESTT" << std::endl;
+	file << "	 oxoxoo    ooxoo   " << std::endl;
+	file << "  ooxoxo oo  oxoxooo  " << std::endl;
+	file << " oooo xxoxoo ooo ooox " << std::endl;
+	file << " oxo o oxoxo  xoxxoxo " << std::endl;
+	file << "  oxo xooxoooo o ooo  " << std::endl;
+	file << "    ooo\\oo\\  /o/o     " << std::endl;
+	file << "        \\  \\/ /       " << std::endl;
+	file << "         |   /        " << std::endl;
+	file << "         |  |         " << std::endl;
+	file << "         | S|         " << std::endl;
+	file << "         |  |         " << std::endl;
+	file << "         |  |         " << std::endl;
+	file << "  ______/____\\____    " << std::endl;
+	file.close();
 }
