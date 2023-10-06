@@ -32,7 +32,7 @@ class AForm {
         AForm(std::string name, int signGrade, int executeGrade); //constructor
         AForm(const AForm &copy); //copy constructor
         AForm &operator=(const AForm &copy); 
-        ~AForm();
+        virtual ~AForm();
 
         //Getters
         std::string getName() const;
