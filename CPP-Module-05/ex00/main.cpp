@@ -54,7 +54,7 @@
 int main ( void ) {
 
     {
-        std::cout <<"\033[0;31m" "---------------- Try-Catch Example [1] ----------------" "\033[m"<< std::endl;
+        std::cout <<"\033[0;31m" "------------------ Try-Catch Example [1] -------------------" "\033[m"<< std::endl;
         int x = -1;        
         std::cout << "Before try \n";
         try {
@@ -72,7 +72,7 @@ int main ( void ) {
     }
 
     {
-        std::cout <<"\033[0;31m" "---------------- Try-Catch Example [2] ----------------" "\033[m"<< std::endl;
+        std::cout <<"\033[0;31m" "------------------ Try-Catch Example [2] -------------------" "\033[m"<< std::endl;
         try  {
            throw 10;
         }
@@ -85,7 +85,7 @@ int main ( void ) {
     }
 
 	{
-		std::cout <<"\033[0;31m" "---------------- No Exception Example [3] ----------------" "\033[m"<< std::endl;
+		std::cout <<"\033[0;31m" "----------------- No Exception Example [3] -----------------" "\033[m"<< std::endl;
 		try
 		{
 			Bureaucrat huseyin("Bureaucrat Huseyin", 42);
@@ -112,7 +112,7 @@ int main ( void ) {
 	}
 
     {
-        std::cout <<"\033[0;31m" "---------------- Example [5] ----------------" "\033[m"<< std::endl;
+        std::cout <<"\033[0;31m" "------------------- Standard Example [5] -------------------" "\033[m"<< std::endl;
         try
         {
 
