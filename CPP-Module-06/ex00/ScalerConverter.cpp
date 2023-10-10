@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 05:15:24 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/10 11:50:46 by yaktas           ###   ########.fr       */
+/*   Updated: 2023/10/10 14:48:15 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ ScalarConverter::ScalarConverter(const std::string &name){
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter &obj){
-	(void)obj;
+	*this = obj;
 }
 
 ScalarConverter::~ScalarConverter(){}
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj){
 
-	(void)obj;
+	this->sc = obj.sc;
 	return (*this);
 }
 

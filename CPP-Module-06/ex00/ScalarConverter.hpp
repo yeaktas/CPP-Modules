@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 05:04:29 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/10 12:49:47 by yaktas           ###   ########.fr       */
+/*   Updated: 2023/10/10 14:47:21 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdlib.h>
 
 class ScalarConverter {
+	private:
+        std::string sc;
 	public:
 		ScalarConverter();
 		ScalarConverter(const std::string &);
