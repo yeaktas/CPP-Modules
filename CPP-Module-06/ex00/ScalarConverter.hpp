@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 05:04:29 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/08 05:48:32 by yaktas           ###   ########.fr       */
+/*   Updated: 2023/10/10 11:53:34 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,25 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <limits>
+#include <string>
+#include <stdlib.h>
+#include <sstream>
+#include <iomanip>
 
 class ScalarConverter {
-
+	private:
+		std::string sc;
 	public:
 		ScalarConverter();
-		ScalarConverter(const std::string &); //bunu sor
-		ScalarConverter(const ScalarConverter &); //bunu sor
+		ScalarConverter(const std::string &);
+		ScalarConverter(const ScalarConverter &);
 		~ScalarConverter();
 
 		ScalarConverter &operator=(const ScalarConverter &);
 
-		static void convert(std::string);
+		static void convert(std::string str);
+		static bool is_it_for_science(std::string &s);
+		static bool is_wrong_number(std::string &s);
 };
 
 #endif
