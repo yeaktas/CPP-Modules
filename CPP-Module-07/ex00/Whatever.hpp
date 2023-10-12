@@ -17,6 +17,7 @@
 
 // Şablonda birden fazla tür alınabilir ve kullanılabilir, yeni eklenecek türün nasıl kullandıldığına göre değişir.
 // typename hem classlar hem de diğer türler için kullanılabilir.
+
 template<typename T> 
 void swap( T& a, T& b ){
 	T temp = a;
@@ -26,12 +27,22 @@ void swap( T& a, T& b ){
 
 template<typename T>
 T min( T a, T b ){
-	return ( (a < b) ? a : b );
+	if(a > b)
+		return (b);
+	else if (a == b)
+		return(b);
+	else
+		return(a);
 }
-template<typename T>
 
+template<typename T>
 T max( T a, T b ){
-	return ( (a > b) ? a : b );
+	if(b > a)
+		return (b);
+	else if (a == b)
+		return(b);
+	else
+		return(a);
 }
 
 #endif
