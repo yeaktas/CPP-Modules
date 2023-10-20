@@ -53,6 +53,7 @@ int main(void)
         list.push_back(6);
         easyfind(vec, 4);
         easyfind(list, 8);
+        
     }
     catch(const int e)
     {
