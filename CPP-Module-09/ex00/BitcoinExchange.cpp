@@ -5,82 +5,106 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 14:55:06 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/21 15:10:53 by yaktas           ###   ########.fr       */
+/*   Created: 2023/10/23 16:28:40 by yaktas            #+#    #+#             */
+/*   Updated: 2023/10/23 16:47:49 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-void Bitcoin::printMap() {
+BitcoinExchange::BitcoinExchange() {
+}
+BitcoinExchange::~BitcoinExchange() {
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &b) {
+    *this = b;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &b) {
+    this->_data = b._data;
+    this->_exchange = b._exchange;
+    return *this;
+}
+
+/* void BitcoinExchange::printMap() {
 	std::map<std::string, double>::iterator it;
 	for(it = _data.begin(); it != _data.end(); ++it){
 		std::cout << it->first << " -- " << it->second << std::endl;
 	}
+} */
+
+void BitcoinExchange::readData() {
+    std::ifstream file("data.csv");
+    if(file.is_open()) {
+        std::string line;
+        while(std::getline(file, line)) {
+            std::istringstream ss(line);
+            std::string key;
+            double value;
+            if(std::getline(ss, key, ',') && ss >> value){
+                _data[key] = value;
+            }
+        }
+        file.close();
+    }
+    else {
+        std::cerr << "Error: Data file is not opened!" << std::endl;
+    }
 }
 
-void Bitcoin::readData() {
-	std::ifstream data("data.csv");
-	if(data.is_open())
-	{
-		std::string line;
-		std::getline(data, line);
-		if(line.compare("date,exchange_rate"))
-			throw MyExc("Error: you dont have date, exchange_rate");
-		while(std::getline(data, line)) {
-			std::stringstream ss(line);
-			std::string time;
-			double value;
-			std::getline(ss, time, ',');
-			ss >> value;
-			this->_data[time] = value;
+double BitcoinExchange::give_back_data(std::string key, double value) {
+    std::map<std::string, double>::iterator it = _data.upper_bound(key);
+    if (it != _data.begin())
+        return((--it)->second * value);
+    return(0);
+}
+
+bool    BitcoinExchange::DateCheck(std::string key_s) {
+    std::string date_day;
+    std::string date_month;
+    std::string date_year;
+    size_t pos1;
+    size_t pos2;
+
+    pos1 = key_s.find("-");
+    date_year = key_s.substr(0, pos1);
+    pos2 = key_s.find("-", pos1 + 1);
+    date_month = key_s.substr(pos1 + 1, pos2 - pos1 - 1);
+    date_day = key_s.substr(pos2 + 1);
+    if(date_year.length() == 4 || date_month.length() == 2 || date_day.length() == 2) {
+        if(std::atoi(date_year.c_str()) <= 2008)
+            ;
+        else if(std::atoi(date_month.c_str()) > 12 || std::atoi(date_month.c_str()) < 1)
+            ;
+		else if(std::atoi(date_day.c_str()) > 31 || std::atoi(date_day.c_str()) < 1 )
+            ;
+		else if(std::atoi(date_year.c_str()) == 2009 && std::atoi(date_month.c_str()) == 1 && std::atoi(date_day.c_str()) == 1)
+            ;
+		else if(std::atoi(date_year.c_str()) == 2022) {
+                if(std::atoi(date_month.c_str()) == 3)
+			{
+				if(std::atoi(date_day.c_str()) > 29)
+                    ;
+			}
+			else if(std::atoi(date_month.c_str()) > 3)
+                ;
 		}
-		data.close();
+		else if(std::atoi(date_year.c_str()) > 2022)
+            ;
+		else
+			return (true);
+		return (false);
 	}
 	else
-		throw MyExc("Error: data is not finded");
+		return (false);
 }
 
-double Bitcoin::calculate(std::string key, double value) {
-	int diff = 0;
-    if (key < _data.begin()->first)
-        return (0);
-    else {
-        std::map<std::string, double>::iterator prev = _data.begin();
-        std::map<std::string, double>::iterator it;
-        for (it = _data.begin(); it != _data.end(); ++it) {
-			
-            if (it->first >= key) {
-                if (it->first == key)
-                    return (value * it->second);
-				else if ()
-                else
-                    return (value * prev->second);
-            }
-            prev = it;
+bool BitcoinExchange::AlphCheck(std::string value) {
+    for(unsigned long i = 0; i < value.length(); i++) {
+        if(isalpha(value[i])){
+           return(false); 
         }
     }
-    return (1);
-}
-
-void Bitcoin::readInput(char **av) {
-	std::ifstream inp(av[1]);
-	std::string line;
-	std::getline(inp, line);
-	while(std::getline(inp, line)) {
-		std::istringstream iss(line);
-		std::string key, value;
-		value.clear();
-		key.clear();
-		if(std::getline(iss, key, '|') && iss >> value) {
-			std::stringstream dob(value);
-			double doub;
-			dob >> doub;
-			this->_input[key] = doub;
-		} else {
-			std::cout << line << std::endl;
-		}
-		std::cout << key << " ==> " << this->_input[key] << " = " << this->calculate(key, this->_input[key]) << std::endl;
-		iss.clear();
-	}
+    return(true);
 }

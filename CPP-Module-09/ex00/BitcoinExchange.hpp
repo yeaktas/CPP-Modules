@@ -5,41 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 14:46:28 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/21 15:07:45 by yaktas           ###   ########.fr       */
+/*   Created: 2023/10/23 16:28:43 by yaktas            #+#    #+#             */
+/*   Updated: 2023/10/23 16:39:32 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOIN_EXCHANGE_HPP
-#define BITCOIN_EXCHANGE_HPP
+#ifndef BITCOINEXCHANGE_H
+#define BITCOINEXCHANGE_H
 
 #include <iostream>
-#include <sstream>
 #include <map>
+#include <sstream>
 #include <fstream>
 #include <string>
 
-class Bitcoin{
+class BitcoinExchange {
+    public:
+        std::map<std::string, double> _data;
+        std::map<std::string, double> _exchange;
 
-	private:
-		std::map<std::string, double> _data;
-		std::map<std::string, double> _input;
+        BitcoinExchange();
+        ~BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange &b);
+        BitcoinExchange& operator=(const BitcoinExchange &b);
 
-	public:
-		void readData();
-		void printMap();
-		void readInput(char **av);
-		double calculate(std::string key, double value);
-};
-
-class MyExc: public std::exception{
-	private:
-		const char* _msg;
-	public:
-		MyExc(const char* msg) : _msg(msg) {}
-		const char* what() const throw() {
-			return _msg;
-		}
+        void readData();
+        bool    DateCheck(std::string key_s);
+        bool    AlphCheck(std::string value);
+        double  give_back_data(std::string key, double value);
 };
 
 #endif
