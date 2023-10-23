@@ -6,9 +6,11 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:45:29 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/23 18:52:17 by yaktas           ###   ########.fr       */
+/*   Updated: 2023/10/23 18:59:21 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "PmergeMe.hpp"
 
 #include "PmergeMe.hpp"
 
@@ -37,7 +39,7 @@ PmergeMe::PmergeMe(int ac, char **av) {
     this->ac = ac;
 }
 
-void PmergeMe::infoBegin(int flag) {
+void PmergeMe::Info_begin(int flag) {
     if(flag == 0) 
         std::cout << "Before:  ";
     else if (flag == 1)
@@ -120,7 +122,7 @@ void PmergeMe::mergeVector(void) {
     std::vector<int> temp(vec_num.size());
     mergeInsertionSort(vec_num, temp, 0, vec_num.size() - 1);
     clock_t end_time = clock();
-    infoBegin(1);
+    Info_begin(1);
     printtime(start_time, end_time, "vector : ");
 }
 

@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:45:32 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/23 18:51:29 by yaktas           ###   ########.fr       */
+/*   Updated: 2023/10/23 18:59:52 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class PmergeMe {
         PmergeMe& operator=(const PmergeMe &p);
         
         PmergeMe(int ac, char **av);
-        void infoBegin(int flag);
+        void Info_begin(int flag);
         void printtime(clock_t start_time, clock_t end_time, std::string cont);
 
         //Deque

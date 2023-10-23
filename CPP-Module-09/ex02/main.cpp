@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:45:26 by yaktas            #+#    #+#             */
-/*   Updated: 2023/10/23 18:51:37 by yaktas           ###   ########.fr       */
+/*   Updated: 2023/10/23 18:59:59 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int ac, char **av) {
         return(1);
     }
     PmergeMe a(ac, av);
-    a.infoBegin(0);
+    a.Info_begin(0);
     a.mergeVector();
     a.mergeDeque();
 }
